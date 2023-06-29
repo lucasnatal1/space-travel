@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./error-page.component.css']
 })
 export class ErrorPageComponent {
+  stars = [...Array(80).keys()]
 
+  constructor() {
+    console.log(this.stars);
+  }
 }
