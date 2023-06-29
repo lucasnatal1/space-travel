@@ -1,0 +1,17 @@
+<div class="grid-container flow">
+  <h1 class="numbered-title">
+    <span aria-hidden="true">01</span>Pick your destination
+  </h1>
+
+  <img src="{{ currentDestination.images.png }}" alt="destination" *ngIf="currentDestination" />
+
+  <div id="tab-list" class="tab-list underline-indicators flex">
+    <button *ngFor="let destination of destinations; let i = index" class="uppercase text-light letter-spacing-2 ff-sans-cond" (click)="onDestinationClick(i)">
+        {{ destination.name }}
+    </button>
+  </div>
+
+  <article class="destination-info" *ngIf="currentDestination">
+    <app-destination-info [destination]="currentDestination"></app-destination-info>
+  </article>
+</div>

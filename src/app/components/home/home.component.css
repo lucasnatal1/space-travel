@@ -1,0 +1,15 @@
+.grid-container {
+  padding-bottom: 3rem;
+  --flow-space: 2rem;
+}
+
+@media (min-width: 45em) {
+  .grid-container {
+    padding-bottom: max(6rem, 20vh);
+    align-items: end;
+  }
+}
+
+h1 span {
+  display: block;
+}

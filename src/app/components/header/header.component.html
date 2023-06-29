@@ -1,0 +1,35 @@
+<header class="primary-header flex">
+  <div>
+    <img src="../../../assets/shared/logo.svg" alt="space turism logo" class="logo" />
+  </div>
+  <button id="mobile-nav-toggle" class="mobile-nav-toggle bg-burger" aria-controls="primary-navigation" (click)="onToggleMenu()">
+    <span class="sr-only" [attr.aria-expanded]="menuVisible">Menu</span>
+  </button>
+  <nav>
+    <ul
+      id="primary-navigation"
+      class="primary-navigation underline-indicators flex"
+    >
+      <li routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="onHomeClick()">
+        <a class="ff-sans-cond uppercase text-white letter-spacing-2" routerLink="/"
+          ><span aria-hidden="true">00</span>Home</a
+        >
+      </li>
+      <li routerLinkActive="active" (click)="onDestinationClick()">
+        <a class="ff-sans-cond uppercase text-white letter-spacing-2" routerLink="/destination"
+          ><span aria-hidden="true">01</span>Destination</a
+        >
+      </li>
+      <li routerLinkActive="active" (click)="onCrewClick()">
+        <a class="ff-sans-cond uppercase text-white letter-spacing-2" routerLink="/crew"
+          ><span aria-hidden="true">02</span>Crew</a
+        >
+      </li>
+      <li routerLinkActive="active" (click)="onTechnologyClick()">
+        <a class="ff-sans-cond uppercase text-white letter-spacing-2" routerLink="/technology"
+          ><span aria-hidden="true">03</span>Technology</a
+        >
+      </li>
+    </ul>
+  </nav>
+</header>

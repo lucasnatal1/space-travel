@@ -1,0 +1,7 @@
+.nav-container {
+  padding-top: 2rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  border-radius: 5px;
+}

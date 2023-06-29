@@ -1,0 +1,123 @@
+.container {
+	--lg: lightgreen;
+}
+
+.container {
+	height: 100dvh;
+	width: 100%;
+	max-width: 2000px;
+	background: linear-gradient(45deg, #151516, #212522);
+	overflow: hidden;
+	position: relative;
+}
+
+header {
+	height: 4rem;
+	width: 100%;
+	background-color: transparent;
+	display: flex;
+	align-items: center;
+	padding: 0rem 4rem;
+}
+
+header a {
+	text-decoration: none;
+	color: lightgreen;
+	transition: all ease 300ms;
+	font-family: system-ui, sans-serif;
+}
+
+header a:hover {
+	color: #03fcbe;
+}
+
+.line,
+.line::after,
+.planet,
+.planet::after,
+.line-center,
+.planet-center,
+.planet-erosion,
+.planet-erosion:after {
+	position: absolute;
+	content: "";
+	border-radius: 50%;
+}
+
+.line {
+	top: -8rem;
+	left: -5rem;
+	height: 20rem;
+	width: 20rem;
+	border: 2px dotted var(--lg);
+	animation: rotate infinite 15s;
+}
+.line::after {
+	top: -4rem;
+	left: -4rem;
+	height: 25rem;
+	width: 25rem;
+	border: 3px solid var(--lg);
+}
+.planet {
+	height: 5rem;
+	width: 5rem;
+	border: 1px solid var(--lg);
+	bottom: 4.5rem;
+	right: 1rem;
+}
+.planet::after {
+	height: 1rem;
+	width: 1rem;
+	border: 1px solid var(--lg);
+	bottom: 0.5rem;
+	right: 2.5rem;
+}
+.line-center {
+	top: -130rem;
+	right: -20rem;
+	height: 175rem;
+	width: 175rem;
+	border: 2px dotted var(--lg);
+	animation: rotate infinite 30s;
+}
+.planet-center {
+	height: 5rem;
+	width: 5rem;
+	border: 1px solid var(--lg);
+	bottom: 10rem;
+	right: 34rem;
+	animation: rotate360planet infinite 20s;
+}
+
+.planet-erosion {
+	height: 1rem;
+	width: 1rem;
+	border: 1px solid var(--lg);
+	bottom: 1rem;
+	right: 2rem;
+}
+.planet-erosion::after {
+	height: 0.5rem;
+	width: 0.5rem;
+	border: 1px solid var(--lg);
+	bottom: 2rem;
+	right: 1rem;
+}
+
+@keyframes rotate {
+	0% {
+		transform: rotate(0deg);
+	}
+	50% {
+		transform: rotate(15deg);
+	}
+	100% {
+		transform: rotate(0deg);
+	}
+}
+@keyframes rotate360planet {
+	100% {
+		transform: rotate(360deg);
+	}
+}
