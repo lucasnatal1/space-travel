@@ -8,6 +8,15 @@
     padding-bottom: max(6rem, 20vh);
     align-items: end;
   }
+
+  .home-info {
+    justify-self: start;
+  }
+
+  .button-container {
+    justify-self: end;
+    max-width: 80%;
+  }
 }
 
 h1 span {

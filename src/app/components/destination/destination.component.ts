@@ -11,6 +11,7 @@ import { Destination } from 'src/app/shared/models/destination.model';
 export class DestinationComponent implements OnInit {
   destinations: Destination[] = [];
   currentDestination: Destination | undefined;
+  tabFocus: number = 0;
 
   constructor(private jsonService: ReadJsonService) {
     this.setBgColorBody();
@@ -24,6 +25,16 @@ export class DestinationComponent implements OnInit {
     }, 100);
   }
 
+  setBgColorBody() {
+    const bodyClasses = document.body.classList;
+    if (bodyClasses.contains('bg-image-home')) {
+      bodyClasses.remove('bg-image-home');
+    } else if (bodyClasses.contains('bg-image-crew')) {
+      bodyClasses.remove('bg-image-crew');
+    }
+    bodyClasses.add('bg-image-destination');
+  }
+
   getDestinationInfo() {
     this.jsonService.getDestinations().subscribe((dest) => {
       this.destinations = dest;
@@ -31,12 +42,25 @@ export class DestinationComponent implements OnInit {
     });
   }
 
-  setBgColorBody() {
-    const bodyClasses = document.body.classList;
-    if (bodyClasses.contains('bg-image-home')) {
-      bodyClasses.remove('bg-image-home');
+  onTabListKeydown(e: any) {
+    const tabs: NodeListOf<HTMLElement> = document.querySelectorAll('[role="tab"]');
+    const keydownLeft = 37;
+    const keydownRight = 39;
+
+    if (e.keyCode === keydownLeft || e.keyCode === keydownRight) {
+      tabs[this.tabFocus].setAttribute("tabindex", '-1');
     }
-    bodyClasses.add('bg-image-destination');
+
+    if (e.keyCode === keydownRight) {
+      this.tabFocus = this.tabFocus < tabs.length - 1 ? this.tabFocus + 1 : 0;
+    }
+
+    if (e.keyCode === keydownLeft) {
+      this.tabFocus = this.tabFocus === 0 ? tabs.length - 1 : this.tabFocus - 1;
+    }
+
+    tabs[this.tabFocus].setAttribute("tabindex", '0');
+    tabs[this.tabFocus].focus();
   }
 
   onDestinationClick(id: number) {

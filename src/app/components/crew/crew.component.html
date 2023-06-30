@@ -1,1 +1,45 @@
-<p>crew works!</p>
+<div class="grid-container flow">
+  <h1 class="numbered-title">
+    <span aria-hidden="true">02</span>Meet your crew
+  </h1>
+
+  <div
+    id="dot-list"
+    role="tablist"
+    aria-label="crew member list"
+    class="dot-indicators flex"
+    style="--gap: 2rem"
+    (keydown)="onDotListKeydown($event)"
+  >
+    <button
+      *ngFor="let crewMember of crew; let i = index"
+      attr.aria-selected="{{
+        crewMember.name === currentCrewMember?.name ? true : false
+      }}"
+      role="tab"
+      attr.aria-controls="{{ crewMember.role.toLowerCase()+'-tab' }}"
+      tabindex="{{ i === 0 ? 0 : -1 }}"
+      (click)="onCrewMemberClick(i)"
+    >
+      <span class="sr-only">The {{ crew[i].role }}</span>
+    </button>
+  </div>
+
+  <article
+    id="{{ currentCrewMember.role.toLowerCase() }}-tab"
+    tabindex="0"
+    role="tabpanel"
+    class="crew-info"
+    *ngIf="currentCrewMember"
+  >
+    <app-crew-info [crewMember]="currentCrewMember"></app-crew-info>
+  </article>
+
+  <picture *ngIf="currentCrewMember">
+    <source srcset="{{ currentCrewMember.images.webp }}" type="image/webp" />
+    <img
+      src="{{ currentCrewMember.images.png }}"
+      alt="{{ currentCrewMember.name }}"
+    />
+  </picture>
+</div>

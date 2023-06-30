@@ -2363,10 +2363,12 @@
 .planet {
   /* background-color: #ff4980; */
   /* background-color: #b7b8ba; */
-  background-color: #e4dcad;
+  /* background-color: #e4dcad; */
+  background-color: hsl( var(--clr-light) / 1);
   /* box-shadow: inset -6px -10px 0px 1px #cc3b6b, 0px 2px 10px rgba(0, 0, 0, 0.4); */
   /* box-shadow: inset -6px -10px 0px 1px #849cac, 0px 2px 10px rgba(0, 0, 0, 0.4); */
-  box-shadow: inset -6px -10px 0px 1px #d5be91, 0px 2px 10px rgba(0, 0, 0, 0.4);
+  /* box-shadow: inset -6px -10px 0px 1px #d5be91, 0px 2px 10px rgba(0, 0, 0, 0.4); */
+  box-shadow: inset -6px -10px 0px 1px hsl( var(--clr-dark) / .5), 0px 2px 10px rgba(0, 0, 0, 0.4);
   width: 155px;
   height: 155px;
 }
@@ -2375,7 +2377,8 @@
   border-radius: 50%;
   /* background-color: #c93667; */
   /* background-color: #445369; */
-  background-color: #d5be91;
+  /* background-color: #d5be91; */
+  background-color: hsl( var(--clr-dark) / .2);
 }
 .craters .crater--1 {
   width: 35px;

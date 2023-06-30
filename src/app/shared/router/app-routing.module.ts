@@ -21,7 +21,7 @@ const appRoutes: Routes = [
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(appRoutes, { preloadingStrategy: PreloadAllModules }),
+    RouterModule.forRoot(appRoutes, { anchorScrolling: 'enabled', preloadingStrategy: PreloadAllModules }),
   ], //preloadingStrategy: PreloadAllModules - preloads all lazy loaded modules after the app has been loaded
   exports: [RouterModule],
 })

@@ -3,15 +3,45 @@
     <span aria-hidden="true">01</span>Pick your destination
   </h1>
 
-  <img src="{{ currentDestination.images.png }}" alt="destination" *ngIf="currentDestination" />
+  <picture *ngIf="currentDestination">
+    <source srcset="{{ currentDestination.images.webp }}" type="image/webp" />
+    <img
+      src="{{ currentDestination.images.png }}"
+      alt="{{ currentDestination.name }}"
+    />
+  </picture>
 
-  <div id="tab-list" class="tab-list underline-indicators flex">
-    <button *ngFor="let destination of destinations; let i = index" class="uppercase text-light letter-spacing-2 ff-sans-cond" (click)="onDestinationClick(i)">
-        {{ destination.name }}
+  <div
+    id="tab-list"
+    role="tablist"
+    aria-label="destination list"
+    class="tab-list underline-indicators flex"
+    (keydown)="onTabListKeydown($event)"
+  >
+    <button
+      *ngFor="let destination of destinations; let i = index"
+      attr.aria-selected="{{
+        destination.name === currentDestination?.name ? true : false
+      }}"
+      role="tab"
+      attr.aria-controls="{{ destination.name.toLowerCase()+'-tab' }}"
+      tabindex="{{ i === 0 ? 0 : -1 }}"
+      class="uppercase text-light letter-spacing-2 ff-sans-cond"
+      (click)="onDestinationClick(i)"
+    >
+      {{ destination.name }}
     </button>
   </div>
 
-  <article class="destination-info" *ngIf="currentDestination">
-    <app-destination-info [destination]="currentDestination"></app-destination-info>
+  <article
+    id="{{ currentDestination.name.toLowerCase() }}-tab"
+    class="destination-info"
+    *ngIf="currentDestination"
+    tabindex="0"
+    role="tabpanel"
+  >
+    <app-destination-info
+      [destination]="currentDestination"
+    ></app-destination-info>
   </article>
 </div>

@@ -12,13 +12,15 @@
   grid-area: title;
 }
 
-img {
+picture {
   grid-area: image;
   max-width: 60%;
+  align-self: start;
 }
 
 .tab-list {
   grid-area: tabs;
+  align-self: start;
 }
 
 .destination-info {
@@ -58,7 +60,7 @@ img {
       ". image content .";
   }
 
-  .grid-container > img {
+  .grid-container > picture {
     max-width: 90%;
   }
 

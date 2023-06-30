@@ -15,6 +15,7 @@ import { InteractiveElementsComponent } from './components/design-system/interac
 import { AppRoutingModule } from './shared/router/app-routing.module';
 import { ErrorPageComponent } from './components/error-page/error-page.component';
 import { DestinationInfoComponent } from './components/destination/destination-info/destination-info.component';
+import { CrewInfoComponent } from './components/crew/crew-info/crew-info.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { DestinationInfoComponent } from './components/destination/destination-i
     InteractiveElementsComponent,
     ErrorPageComponent,
     DestinationInfoComponent,
+    CrewInfoComponent,
   ],
   imports: [
     BrowserModule,

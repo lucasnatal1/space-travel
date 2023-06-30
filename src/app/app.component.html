@@ -1,5 +1,5 @@
-<a href="#main" class="skip-to-content">Skip to content</a>
+<a [routerLink]="currentUrl" [fragment]="'main'" class="skip-to-content">Skip to content</a>
 <app-header></app-header>
-<main id="main">
+<main [attr.id]="'main'">
   <router-outlet></router-outlet>
 </main>
