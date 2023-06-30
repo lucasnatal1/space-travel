@@ -1,3 +1,4 @@
+<div id="page" style="height: 75vh;" (mousemove)="onMouseMove($event)" (mouseleave)="onMouseLeave()">
 <div class="stars">
   <div *ngFor="let star of stars" class="star"></div>
 </div>
@@ -7,7 +8,7 @@
 <div class="flex">
   <div class="num num1">4</div>
   <div class="num num2">4</div>
-  <div class="circle oh">
+  <div id="planet" class="circle oh idle-animation">
     <div class="astronaut">
       <div class="astronaut-backpack"></div>
       <div class="astronaut-head"></div>
@@ -32,9 +33,9 @@
     </div>
     <svg
       class="astronaut-wire"
-      viewBox="-9 -9 259 500"
+      viewBox="-9 -9 259 432"
       width="259"
-      height="500"
+      height="432"
     >
       <path
         d="M241 0c-24 54-30 113-78 148S63 159 27 215c-35 55 32 102 73 141s103 94 98 166c-6 97-169 66-192 157-10 43-8 84 9 126"
@@ -112,4 +113,5 @@
       </div>
     </div>
   </div>
+</div>
 </div>

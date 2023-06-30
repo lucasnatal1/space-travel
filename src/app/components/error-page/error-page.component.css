@@ -2353,9 +2353,12 @@
 }
 .oh {
   transition: all 0.1s linear;
+
+  z-index: 2;
+}
+.idle-animation {
   -webkit-animation: floating 4s linear infinite;
   animation: floating 4s linear infinite;
-  z-index: 2;
 }
 .planet {
   /* background-color: #ff4980; */
