@@ -14,7 +14,7 @@ export class DestinationComponent implements OnInit {
   tabFocus: number = 0;
 
   constructor(private jsonService: ReadJsonService) {
-    this.setBgColorBody();
+    this.setBgImageBody();
   }
 
   ngOnInit(): void {
@@ -25,12 +25,14 @@ export class DestinationComponent implements OnInit {
     }, 100);
   }
 
-  setBgColorBody() {
+  setBgImageBody() {
     const bodyClasses = document.body.classList;
     if (bodyClasses.contains('bg-image-home')) {
       bodyClasses.remove('bg-image-home');
     } else if (bodyClasses.contains('bg-image-crew')) {
       bodyClasses.remove('bg-image-crew');
+    } else if (bodyClasses.contains('bg-image-tech')) {
+      bodyClasses.remove('bg-image-tech');
     }
     bodyClasses.add('bg-image-destination');
   }

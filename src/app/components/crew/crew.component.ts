@@ -14,7 +14,7 @@ export class CrewComponent implements OnInit {
   tabFocus: number = 0;
 
   constructor(private jsonService: ReadJsonService) {
-    this.setBgColorBody();
+    this.setBgImageBody();
   }
 
   ngOnInit(): void {
@@ -32,12 +32,14 @@ export class CrewComponent implements OnInit {
     });
   }
 
-  setBgColorBody() {
+  setBgImageBody() {
     const bodyClasses = document.body.classList;
     if (bodyClasses.contains('bg-image-home')) {
       bodyClasses.remove('bg-image-home');
     } else if (bodyClasses.contains('bg-image-destination')) {
       bodyClasses.remove('bg-image-destination');
+    } else if (bodyClasses.contains('bg-image-tech')) {
+      bodyClasses.remove('bg-image-tech');
     }
     bodyClasses.add('bg-image-crew');
   }

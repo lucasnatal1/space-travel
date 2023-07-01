@@ -17,6 +17,14 @@
     justify-self: end;
     max-width: 80%;
   }
+
+  .grid-container > *:first-child {
+    grid-column: 2;
+  }
+
+  .grid-container > *:last-child {
+    grid-column: 3;
+  }
 }
 
 h1 span {

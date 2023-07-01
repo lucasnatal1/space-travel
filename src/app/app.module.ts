@@ -16,6 +16,7 @@ import { AppRoutingModule } from './shared/router/app-routing.module';
 import { ErrorPageComponent } from './components/error-page/error-page.component';
 import { DestinationInfoComponent } from './components/destination/destination-info/destination-info.component';
 import { CrewInfoComponent } from './components/crew/crew-info/crew-info.component';
+import { TechnologyInfoComponent } from './components/technology/technology-info/technology-info.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { CrewInfoComponent } from './components/crew/crew-info/crew-info.compone
     ErrorPageComponent,
     DestinationInfoComponent,
     CrewInfoComponent,
+    TechnologyInfoComponent,
   ],
   imports: [
     BrowserModule,

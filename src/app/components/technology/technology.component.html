@@ -1,1 +1,39 @@
-<p>technology works!</p>
+<div class="grid-container flow">
+  <h1 class="numbered-title">
+    <span aria-hidden="true">03</span>Space launch 101
+  </h1>
+
+  <div
+    id="number-list"
+    role="tablist"
+    aria-label="technology list"
+    class="number-indicators flex"
+    style="--gap: 2rem"
+    (keydown)="onNumberListKeydown($event)"
+  >
+    <button
+      *ngFor="let tech of technology; let i = index"
+      attr.aria-selected="{{ tech.name === currentTech?.name ? true : false }}"
+      role="tab"
+      attr.aria-controls="{{ tech.name.toLowerCase() + '-tab' }}"
+      tabindex="{{ i === 0 ? 0 : -1 }}"
+      (click)="onTechClick(i)"
+    >
+      <span class="sr-only">The {{ tech.name }}</span>
+      {{ i+1 }}
+    </button>
+  </div>
+
+  <article
+    id="{{ currentTech.name.toLowerCase() }}-tab"
+    tabindex="0"
+    role="tabpanel"
+    class="tech-info"
+    *ngIf="currentTech"
+  >
+    <app-technology-info [technology]="currentTech"></app-technology-info>
+  </article>
+
+  <img src="{{ currentTech.images.portrait }}" alt="{{ currentTech.name }}" *ngIf="currentTech && portraitSize"/>
+  <img src="{{ currentTech.images.landscape }}" alt="{{ currentTech.name }}" *ngIf="currentTech && !portraitSize"/>
+</div>

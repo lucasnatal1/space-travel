@@ -8,12 +8,14 @@ import { Component } from '@angular/core';
 export class HomeComponent {
 
   constructor() {
-    this.setBgColorBody();
+    this.setBgImageBody();
   }
 
-  setBgColorBody() {
+  setBgImageBody() {
     const bodyClasses = document.body.classList;
-    if (bodyClasses.contains('bg-image-destination')) {
+    if (bodyClasses.contains('bg-image-tech')) {
+      bodyClasses.remove('bg-image-tech');
+    } else if (bodyClasses.contains('bg-image-destination')) {
       bodyClasses.remove('bg-image-destination');
     } else if (bodyClasses.contains('bg-image-crew')) {
       bodyClasses.remove('bg-image-crew');
